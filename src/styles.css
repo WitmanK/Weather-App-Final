@@ -1,0 +1,101 @@
+body {
+  font-family: arial, sans-serif;
+}
+.weather-page-border {
+  border: 1px solid #dadce0;
+  padding: 20px;
+  margin: 20px auto;
+  max-width: 700px;
+  border-radius: 30px;
+}
+h1 {
+  color: #202124;
+  font-size: 22px;
+  line-height: 26px;
+  margin: 0;
+  margin-top: 10px;
+}
+.dailyBreakdown {
+  color: #70757a;
+  display: inline-block;
+  font-size: 15px;
+  line-height: 16px;
+  padding-left: 9px;
+  padding-top: 6px;
+  list-style-type: none;
+  padding: 0;
+}
+.currentStatus {
+  color: #70757a;
+  display: inline-block;
+  font-size: 15px;
+  line-height: 16px;
+  padding-left: 9px;
+  padding-top: 6px;
+  list-style-type: none;
+  padding: 0;
+  margin: 0 0 15px;
+}
+.temperature {
+  font-size: 48px;
+  display: inline;
+  font-weight: 400;
+  letter-spacing: normal;
+  line-height: 56px;
+  margin-left: 2px;
+}
+.candf {
+  font-size: 20px;
+  display: inline;
+  font-weight: 400;
+  line-height: 56px;
+  height: 200;
+  position: relative;
+  top: -20px;
+}
+.current-weather-picture {
+  width: 80px;
+}
+.search-bar {
+  margin-bottom: 20px;
+}
+.bottom-today {
+  margin-left: 20px;
+}
+.bottom-wednesday {
+  margin-left: -10px;
+}
+.bottom-thursday {
+  margin-left: 20px;
+}
+
+.bottom-row {
+  margin-top: 20px;
+  color: #202124;
+}
+.degrees-row {
+  font-size: 18px;
+  margin-left: 10px;
+  color: #70757a;
+}
+.today-degrees {
+  margin-left: 10px;
+}
+.wed-degrees {
+  margin-left: 5px;
+}
+.thurs-degrees {
+  margin-left: 20px;
+}
+.fri-degrees {
+  margin-left: 0px;
+}
+.sat-degrees {
+  margin-left: 8px;
+}
+.today-bottom-picture {
+  margin-left: -8px;
+}
+.celc {
+  cursor: pointer;
+}
