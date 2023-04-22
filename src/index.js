@@ -26,9 +26,11 @@ currentTimeAndDate.innerHTML = `${day} ${hour}:${minutes}`;
 function showTemperature(response) {
   document.querySelector("#city").innerHTML = response.data.name;
   //the "city" is the h1 from HTML.
-  document.querySelector("#daily-degree").innerHTML = Math.round(
-    response.data.main.temp
-  );
+
+  let celciusTemperature = response.data.main.temp;
+
+  document.querySelector("#daily-degree").innerHTML =
+    Math.round(celciusTemperature);
   document.querySelector("#humidity").innerHTML = response.data.main.humidity;
   document.querySelector("#wind").innerHTML = response.data.wind.speed;
   document.querySelector("#current-weather-description").innerHTML =
@@ -41,12 +43,14 @@ function showTemperature(response) {
     `https://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
   );
 }
+
 function search(city) {
   let apiKey = "206b71039aae70f39d86f06e91e5ecf7";
   //above(.value) means that he value of that searchbar will be the variable
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
   axios.get(apiUrl).then(showTemperature);
 }
+
 function searchProcess(event) {
   event.preventDefault();
   let city = document.querySelector("#search-input").value;
@@ -55,8 +59,6 @@ function searchProcess(event) {
 
 let form = document.querySelector("#search-bar");
 form.addEventListener("submit", searchProcess);
-
-search("Belfast");
 
 function showLocation(position) {
   let apiKey = "206b71039aae70f39d86f06e91e5ecf7";
@@ -76,3 +78,25 @@ function getCurrentCity(event) {
 
 let currentButton = document.querySelector("#current-button");
 currentButton.addEventListener("click", getCurrentCity);
+
+function celciusConversion(event) {
+  event.preventDefault();
+  let currentTemperature = document.querySelector("#daily-degree");
+  currentTemperature.innerHTML = Math.round(celciusTemperature);
+}
+let celciusTemperature = null;
+
+function farenheitConversion(event) {
+  event.preventDefault();
+  let farenheitOutput = (celciusTemperature * 9) / 5 + 32;
+  let currentTemperature = document.querySelector("#daily-degree");
+  currentTemperature.innerHTML = Math.round(farenheitOutput);
+}
+
+let farenheitButton = document.querySelector("#farenheit-link");
+farenheitButton.addEventListener("click", farenheitConversion);
+
+let celciusButton = document.querySelector("#celcius-link");
+celciusButton.addEventListener("click", celciusConversion);
+
+search("Belfast");
