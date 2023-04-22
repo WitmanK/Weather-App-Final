@@ -99,3 +99,7 @@ h1 {
 .celc {
   cursor: pointer;
 }
+h2 {
+  font-size: 15px;
+  text-align: center;
+}
