@@ -34,6 +34,12 @@ function showTemperature(response) {
   document.querySelector("#current-weather-description").innerHTML =
     response.data.weather[0].main;
   //if you console.log the description of the weather, you'll see that it's in an array. Due to this, you got to use an array blocks.
+  let currentIcon = document.querySelector("#current-icon");
+
+  currentIcon.setAttribute(
+    "src",
+    `https://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
+  );
 }
 function search(city) {
   let apiKey = "206b71039aae70f39d86f06e91e5ecf7";
