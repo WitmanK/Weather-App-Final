@@ -23,6 +23,31 @@ if (minutes < 10) {
 let currentTimeAndDate = document.querySelector(".current-time-date");
 currentTimeAndDate.innerHTML = `${day} ${hour}:${minutes}`;
 
+function displayForecast() {
+  let forecastElement = document.querySelector("#forecast");
+
+  let forecastHTML = `<div class="row">`;
+  let days = ["Sunday", "Monday", "Tuesday"];
+  days.forEach(function (day) {
+    forecastHTML =
+      forecastHTML +
+      `
+    <div class="bottom-today col-2">
+        <div class="forecast-date">${day}</div>
+        <img src="https://openweathermap.org/img/wn/10d@2x.png" alt="todays degrees" width="50px"/>
+    
+
+    <div class="degrees-row row">
+      <div class="today-degrees col-2"><span class="high">26° </span>  <span class="low">10°</span></div>
+  </div>
+    </div>
+      `;
+  });
+  forecastHTML = forecastHTML + `</div>`;
+
+  forecastElement.innerHTML = forecastHTML;
+}
+
 function showTemperature(response) {
   document.querySelector("#city").innerHTML = response.data.name;
   //the "city" is the h1 from HTML.
@@ -99,4 +124,5 @@ farenheitButton.addEventListener("click", farenheitConversion);
 let celciusButton = document.querySelector("#celcius-link");
 celciusButton.addEventListener("click", celciusConversion);
 
+displayForecast();
 search("Belfast");
