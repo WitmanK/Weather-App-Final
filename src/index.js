@@ -23,9 +23,9 @@ if (minutes < 10) {
 let currentTimeAndDate = document.querySelector(".current-time-date");
 currentTimeAndDate.innerHTML = `${day} ${hour}:${minutes}`;
 
-function displayForecast() {
+function displayForecast(response) {
+  console.log(response);
   let forecastElement = document.querySelector("#forecast");
-
   let forecastHTML = `<div class="row">`;
   let days = ["Sunday", "Monday", "Tuesday"];
   days.forEach(function (day) {
@@ -47,6 +47,12 @@ function displayForecast() {
 
   forecastElement.innerHTML = forecastHTML;
 }
+function getForecast(coordinates) {
+  let apiKey = "206b71039aae70f39d86f06e91e5ecf7";
+
+  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${coordinates.latitude}&lon=${coordinates.longitude}&appid=${apiKey}&units=metric`;
+  console.log(apiUrl);
+}
 
 function showTemperature(response) {
   document.querySelector("#city").innerHTML = response.data.name;
@@ -67,6 +73,8 @@ function showTemperature(response) {
     "src",
     `https://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
   );
+
+  getForecast(response.data.coord);
 }
 
 function search(city) {
@@ -79,15 +87,15 @@ function search(city) {
 function searchProcess(event) {
   event.preventDefault();
   let city = document.querySelector("#search-input").value;
+  //above(.value) means that he value of that searchbar will be the variable
+
   search(city);
 }
-
 let form = document.querySelector("#search-bar");
 form.addEventListener("submit", searchProcess);
 
 function showLocation(position) {
   let apiKey = "206b71039aae70f39d86f06e91e5ecf7";
-  //above(.value) means that he value of that searchbar will be the variable
 
   let latitude = position.coords.latitude;
   let longitude = position.coords.longitude;
@@ -124,5 +132,5 @@ farenheitButton.addEventListener("click", farenheitConversion);
 let celciusButton = document.querySelector("#celcius-link");
 celciusButton.addEventListener("click", celciusConversion);
 
-displayForecast();
 search("Belfast");
+displayForecast();
