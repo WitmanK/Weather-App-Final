@@ -58,7 +58,7 @@ function showTemperature(response) {
   document.querySelector("#city").innerHTML = response.data.name;
   //the "city" is the h1 from HTML.
 
-  let celciusTemperature = response.data.main.temp;
+  celciusTemperature = response.data.main.temp;
 
   document.querySelector("#daily-degree").innerHTML =
     Math.round(celciusTemperature);
