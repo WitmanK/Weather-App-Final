@@ -59,47 +59,37 @@ h1 {
 .search-bar {
   margin-bottom: 20px;
 }
-.bottom-today {
-  margin-left: 20px;
-}
-.bottom-wednesday {
-  margin-left: -10px;
-}
-.bottom-thursday {
-  margin-left: 20px;
-}
-
 .bottom-row {
   margin-top: 20px;
   color: #202124;
-}
-.degrees-row {
-  font-size: 18px;
-  margin-left: 10px;
-  color: #70757a;
-}
-.today-degrees {
-  margin-left: 10px;
-}
-.wed-degrees {
-  margin-left: 5px;
-}
-.thurs-degrees {
-  margin-left: 20px;
-}
-.fri-degrees {
-  margin-left: 0px;
-}
-.sat-degrees {
-  margin-left: 8px;
-}
-.today-bottom-picture {
-  margin-left: -8px;
 }
 .celc {
   cursor: pointer;
 }
 h2 {
   font-size: 15px;
+  text-align: center;
+}
+.active {
+  color: #202124;
+  text-decoration: none;
+}
+.active:hover {
+  text-decoration: none;
+}
+.f-link {
+  text-decoration: none;
+}
+.bottom-row {
+  text-align: center;
+}
+.low {
+  font-size: 13px;
+  color: #70757a;
+}
+.high {
+  font-size: 16px;
+}
+.degrees-row {
   text-align: center;
 }

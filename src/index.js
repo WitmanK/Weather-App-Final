@@ -79,19 +79,19 @@ function getCurrentCity(event) {
 let currentButton = document.querySelector("#current-button");
 currentButton.addEventListener("click", getCurrentCity);
 
-function celciusConversion(event) {
-  event.preventDefault();
-  let currentTemperature = document.querySelector("#daily-degree");
-  currentTemperature.innerHTML = Math.round(celciusTemperature);
-}
-let celciusTemperature = null;
-
 function farenheitConversion(event) {
   event.preventDefault();
   let farenheitOutput = (celciusTemperature * 9) / 5 + 32;
   let currentTemperature = document.querySelector("#daily-degree");
   currentTemperature.innerHTML = Math.round(farenheitOutput);
 }
+function celciusConversion(event) {
+  event.preventDefault();
+  let currentTemperature = document.querySelector("#daily-degree");
+  currentTemperature.innerHTML = Math.round(celciusTemperature);
+}
+
+let celciusTemperature = null;
 
 let farenheitButton = document.querySelector("#farenheit-link");
 farenheitButton.addEventListener("click", farenheitConversion);
