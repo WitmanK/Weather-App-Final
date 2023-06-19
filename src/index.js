@@ -23,11 +23,19 @@ if (minutes < 10) {
 let currentTimeAndDate = document.querySelector(".current-time-date");
 currentTimeAndDate.innerHTML = `${day} ${hour}:${minutes}`;
 
+function getForecast(coordinates) {
+  let apiKey1 = "206b71039aae70f39d86f06e91e5ecf7";
+  let latitude = coords.latitude;
+  let longitude = coords.longitude;
+  let apiUrl1 = `https://api.openweathermap.org/data/3.0/onecall?lat=${latitude}&lon=${longitude}&appid=${apiKey1}&units=metric`;
+  axios.get(apiUrl1).then(displayForecast);
+}
+
 function displayForecast(response) {
-  console.log(response);
+  console.log(response.data);
   let forecastElement = document.querySelector("#forecast");
-  let forecastHTML = `<div class="row">`;
   let days = ["Sunday", "Monday", "Tuesday"];
+  let forecastHTML = `<div class="row">`;
   days.forEach(function (day) {
     forecastHTML =
       forecastHTML +
@@ -46,12 +54,6 @@ function displayForecast(response) {
   forecastHTML = forecastHTML + `</div>`;
 
   forecastElement.innerHTML = forecastHTML;
-}
-function getForecast(coordinates) {
-  let apiKey = "206b71039aae70f39d86f06e91e5ecf7";
-
-  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${coordinates.latitude}&lon=${coordinates.longitude}&appid=${apiKey}&units=metric`;
-  console.log(apiUrl);
 }
 
 function showTemperature(response) {
@@ -133,4 +135,3 @@ let celciusButton = document.querySelector("#celcius-link");
 celciusButton.addEventListener("click", celciusConversion);
 
 search("Belfast");
-displayForecast();
