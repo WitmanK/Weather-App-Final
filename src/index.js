@@ -32,7 +32,6 @@ function getForecast(coordinates) {
 }
 
 function displayForecast(response) {
-  console.log(response.data);
   let forecastElement = document.querySelector("#forecast");
   let days = ["Sunday", "Monday", "Tuesday"];
   let forecastHTML = `<div class="row">`;
