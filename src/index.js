@@ -24,7 +24,6 @@ let currentTimeAndDate = document.querySelector(".current-time-date");
 currentTimeAndDate.innerHTML = `${day} ${hour}:${minutes}`;
 
 function getForecast(coordinates) {
-  function getForecast(coordinates) {
   let apiKey1 = "2daf65f0cdaa917f11026e8a128ce271";
   let latitude = coordinates.lat;
   let longitude = coordinates.lon;
