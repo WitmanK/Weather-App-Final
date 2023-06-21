@@ -24,16 +24,16 @@ let currentTimeAndDate = document.querySelector(".current-time-date");
 currentTimeAndDate.innerHTML = `${day} ${hour}:${minutes}`;
 
 function getForecast(coordinates) {
-  let apiKey1 = "206b71039aae70f39d86f06e91e5ecf7";
-  let latitude = coordinates.latitude;
-  let longitude = coordinates.longitude;
-  let apiUrl1 = `https://api.openweathermap.org/data/3.0/onecall?lat=${latitude}&lon=${longitude}&appid=${apiKey1}&units=metric`;
+  function getForecast(coordinates) {
+  let apiKey1 = "2daf65f0cdaa917f11026e8a128ce271";
+  let latitude = coordinates.lat;
+  let longitude = coordinates.lon;
+  let apiUrl1 = `https://api.openweathermap.org/data/2.5/onecall?lat=${latitude}&lon=${longitude}&appid=${apiKey1}&units=metric`;
   axios.get(apiUrl1).then(displayForecast);
 }
 
 function displayForecast(response) {
   let forecast = response.data.daily;
-  console.log(forecast);
   let forecastElement = document.querySelector("#forecast");
   let days = ["Sunday", "Monday"];
   let forecastHTML = `<div class="row">`;
