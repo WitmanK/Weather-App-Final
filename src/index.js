@@ -34,7 +34,7 @@ function getForecast(coordinates) {
 function displayForecast(response) {
   let forecast = response.data.daily;
   let forecastElement = document.querySelector("#forecast");
-  let days = ["Sunday", "Monday"];
+  let days = ["Sunday", "Monday", "Tuesday", "Wednesday", "thursday"];
   let forecastHTML = `<div class="row">`;
   days.forEach(function (day) {
     forecastHTML =
@@ -46,7 +46,7 @@ function displayForecast(response) {
     
 
     <div class="degrees-row row">
-      <span class="today-degrees-max col-2">0° </span>  
+      <span class="today-degrees-max col-2">0°</span>  
       <span class="today-degrees-low">10°</span>
       </div>
   </div>
