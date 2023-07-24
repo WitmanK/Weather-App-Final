@@ -34,14 +34,14 @@ function getForecast(coordinates) {
 function displayForecast(response) {
   let forecast = response.data.daily;
   let forecastElement = document.querySelector("#forecast");
-  let days = ["Sunday", "Monday", "Tuesday", "Wednesday", "thursday"];
+
   let forecastHTML = `<div class="row">`;
-  days.forEach(function (day) {
+  days.forEach(function (forecastDay) {
     forecastHTML =
       forecastHTML +
       `
     <div class="bottom-today col-2">
-        <div class="forecast-date">Mon</div>
+        <div class="forecast-date">${forecastDay.dt}</div>
         <img src="https://openweathermap.org/img/wn/10d@2x.png" alt="todays degrees" width="50px"/>
     
 
