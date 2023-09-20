@@ -36,12 +36,12 @@ function displayForecast(response) {
   let forecastElement = document.querySelector("#forecast");
 
   let forecastHTML = `<div class="row">`;
-  days.forEach(function (forecastDay) {
+  forecast.forEach(function (forecastDay) {
     forecastHTML =
       forecastHTML +
       `
     <div class="bottom-today col-2">
-        <div class="forecast-date">${forecastDay.dt}</div>
+        <div class="forecast-date">${formatDay(forecastDay.dt * 1000)}</div>
         <img src="https://openweathermap.org/img/wn/10d@2x.png" alt="todays degrees" width="50px"/>
     
 
@@ -55,6 +55,14 @@ function displayForecast(response) {
   forecastHTML = forecastHTML + `</div>`;
 
   forecastElement.innerHTML = forecastHTML;
+}
+
+function formatDay(timestamp) {
+  let date = new Date(timestamp * 1000);
+  let day = date.getDay();
+  let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+
+  return days[day];
 }
 
 function showTemperature(response) {
