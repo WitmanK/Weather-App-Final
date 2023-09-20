@@ -48,8 +48,12 @@ function displayForecast(response) {
     
 
     <div class="degrees-row row">
-      <span class="today-degrees-max col-2">${forecastDay.temp.max}°</span>  
-      <span class="today-degrees-low">${forecastDay.temp.min}°</span>
+      <span class="today-degrees-max col-2">${Math.round(
+        forecastDay.temp.max
+      )}°</span>  
+      <span class="today-degrees-low">${Math.round(
+        forecastDay.temp.min
+      )}°</span>
       </div>
   </div>
       `;
