@@ -42,12 +42,14 @@ function displayForecast(response) {
       `
     <div class="bottom-today col-2">
         <div class="forecast-date">${formatDay(forecastDay.dt * 1000)}</div>
-        <img src="https://openweathermap.org/img/wn/10d@2x.png" alt="todays degrees" width="50px"/>
+        <img src="https://openweathermap.org/img/wn/${
+          forecastDay.weather[0].icon
+        }@2x.png" alt="todays degrees" width="50px"/>
     
 
     <div class="degrees-row row">
-      <span class="today-degrees-max col-2">0°</span>  
-      <span class="today-degrees-low">10°</span>
+      <span class="today-degrees-max col-2">${forecastDay.temp.max}°</span>  
+      <span class="today-degrees-low">${forecastDay.temp.min}°</span>
       </div>
   </div>
       `;
@@ -60,7 +62,7 @@ function displayForecast(response) {
 function formatDay(timestamp) {
   let date = new Date(timestamp * 1000);
   let day = date.getDay();
-  let days = ["Sun", "Mon", "Tue", "Wed", "Thu"];
+  let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
 
   return days[day];
 }
